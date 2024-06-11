@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff5f6d, #ffc371);
+    margin: 0;
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+button {
+    background: #6200ea;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s;
+}
+
+button:disabled {
+    background: #555;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background: #3700b3;
+}
+
+.hidden {
+    display: none;
+}
+
+.slot-machine {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.slot {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border: 2px solid #000;
+    margin: 0 5px;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: none;
+    border-radius: 10px;
+    color: #222;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/*.spinning {
+    animation: spin 0.5s linear infinite;
+    background: #f0f0f0;
+    color: #ddd;
+}*/
+
+
+/* Input field styling */
+.eth-input {
+    width: calc(100% - 20px);
+    /* Full width accounting for padding */
+    padding: 10px;
+    margin: 10px 0;
+    /* Spacing around the input */
+    font-size: 1em;
+    color: #222;
+    background: #fff;
+    border: 2px solid #6200ea;
+    /* Match button color */
+    border-radius: 5px;
+    /* Rounded corners */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    /* Smooth transition for border and shadow */
+}
+
+.eth-input::placeholder {
+    color: #999;
+    /* Placeholder text color */
+}
+
+.eth-input:focus {
+    border-color: #3700b3;
+    /* Darker shade on focus */
+    outline: none;
+    /* Remove default outline */
+    box-shadow: 0 0 5px rgba(55, 0, 179, 0.5);
+    /* Glow effect on focus */
+}
+
+@keyframes scramble {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
