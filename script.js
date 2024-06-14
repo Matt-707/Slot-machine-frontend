@@ -18,6 +18,7 @@ document.getElementById("connectButton").addEventListener("click", async () => {
 
             document.getElementById("connectButton").textContent = "Connected";
             document.getElementById("gameSection").classList.remove("hidden");
+            document.getElementById("payout").classList.remove("hidden");
             document.getElementById("enterButton").disabled = false;
             initialSlotState();
             //await displayBalance();

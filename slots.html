@@ -15,16 +15,12 @@
         <div id="gameSection" class="hidden">
             <div id="balanceDisplay">
                 <p>Balance: <span id="balance">0</span> ETH</p>
+                <p>Cost per spin: 0.0002 Ether</p>
             </div>
             <div class="slot-machine">
-                <div class="slot" id="slot1">
-
-                </div>
-                <div class="slot" id="slot2">
-                </div>
-                <div class="slot" id="slot3">
-
-                </div>
+                <div class="slot" id="slot1"></div>
+                <div class="slot" id="slot2"></div>
+                <div class="slot" id="slot3"></div>
             </div>
             <button id="enterButton" disabled>Enter Game</button>
             <button id="spinButton" disabled>Spin</button>
@@ -34,11 +30,32 @@
                 <input id="ETHAmount" class="eth-input" placeholder="Minimum 0.005 ETH to enter">
             </div>
         </div>
-
     </div>
-    
+    <div id="payout" class="hidden">
+    <div class="payout-container">
+        <div class="payout-box">
+            <h3>Payout Table</h3>
+            <h5>We pay the following times your spin cost back for each result</h5>
+            <ul class="payout-list">
+                <li>3 🍒: 100X</li>
+                <li>3 🍋: 75X</li>
+                <li>3 🍉: 50X</li>
+                <li>3 🍇: 35X</li>
+                <li>3 🍊: 30X</li>
+                <li>3 🍓: 25X</li>
+                <li>3 🍍: 20X</li>
+                <li>3 🍌: 15X</li>
+                <li>3 🍑: 10X</li>
+                <li>3 🍈: 5X</li>
+                <li>2 of any kind: 2X</li>
+                <li>Any other combination: 0X</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+
     <script src="./script.js" type="module"></script>
     <script src="./ethers-5.1.esm.min.js" type="module"></script>
 </body>
+
 </html>
-        
