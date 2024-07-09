@@ -7,6 +7,8 @@ let contract;
 let intervalIDs = [];
 const fruits = ["🍒", "🍋", "🍉", "🍇", "🍊", "🍓", "🍍", "🍌", "🍑", "🍈"];
 
+let userAddress;
+
 
 document.getElementById("connectButton").addEventListener("click", async () => {
     if (typeof (window.ethereum) !== "undefined") {
@@ -15,6 +17,7 @@ document.getElementById("connectButton").addEventListener("click", async () => {
             provider = new ethers.providers.Web3Provider(window.ethereum);
             signer = provider.getSigner();
             contract = new ethers.Contract(contractAddress, abi, signer);
+		userAddress = signer.getAddress();
 
             document.getElementById("connectButton").textContent = "Connected";
             document.getElementById("gameSection").classList.remove("hidden");
@@ -31,7 +34,7 @@ document.getElementById("connectButton").addEventListener("click", async () => {
 
 async function displayBalance() {
     try {
-        const balance = await contract.checkPlayerBalance();
+        const balance = await contract.checkPlayerBalance(userAddress);
         const formattedBalance = ethers.utils.formatEther(balance)
         console.log("Balance:", formattedBalance);
         document.getElementById("balance").textContent = formattedBalance;
@@ -119,7 +122,7 @@ function clearIntervalSlots() {
 
 async function updateSlotValues() {
     try {
-        const slotValues = await contract.getRecentSlotCombo();
+        const slotValues = await contract.getRecentSlotCombo(userAddress);
         stopSlotAnimation(slotValues);
     } catch (error) {
         console.error("Error fetching slot values:", error);
