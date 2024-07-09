@@ -9,15 +9,13 @@ const fruits = ["🍒", "🍋", "🍉", "🍇", "🍊", "🍓", "🍍", "🍌", 
 let userAddress;
 
 
-
-
 document.getElementById("connectButton").addEventListener("click", async () => {
     if (typeof (window.ethereum) !== "undefined") {
         try {
             await ethereum.request({ method: 'eth_requestAccounts' });
             provider = new ethers.providers.Web3Provider(window.ethereum);
             signer = provider.getSigner();
-            userAddress = signer.getAddress();
+            userAddress = await signer.getAddress();
             contract = new ethers.Contract(contractAddress, abi, signer);
 
             document.getElementById("connectButton").textContent = "Connected";
